@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trendly | Crack the Code to Going Viral</title>
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZXLDXV9K9D"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -127,6 +128,7 @@
 </head>
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
 
+    <!-- Header -->
     <nav class="fixed top-0 w-full z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-2xl px-6 py-3 shadow-sm">
             <div class="flex items-center gap-2">
@@ -136,13 +138,19 @@
                 <span class="text-xl font-extrabold tracking-tight">Trendly</span>
             </div>
             <div class="hidden md:flex gap-8 text-sm font-bold text-slate-500">
-                <a href="#how-it-works" class="hover:text-indigo-600 transition-colors">How it works</a>
-                <a href="#features" class="hover:text-indigo-600 transition-colors">Features</a>
+                <a href="#how-it-works" data-t="nav_how" class="hover:text-indigo-600 transition-colors">How it works</a>
+                <a href="#features" data-t="nav_features" class="hover:text-indigo-600 transition-colors">Features</a>
             </div>
-            <a href="#waitlist" class="bg-indigo-600 text-white px-5 py-2 rounded-xl text-sm font-bold hover:bg-indigo-700 transition-all shadow-md">Join early access</a>
+            <div class="flex items-center gap-4">
+                <button id="lang-toggle" class="text-xs font-bold px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 transition-all uppercase tracking-wider">
+                    EN / 简体中文
+                </button>
+                <a href="#waitlist" data-t="nav_cta" class="bg-indigo-600 text-white px-5 py-2 rounded-xl text-sm font-bold hover:bg-indigo-700 transition-all shadow-md">Join early access</a>
+            </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="relative pt-32 pb-20 md:pt-48 md:pb-24 px-6 overflow-hidden">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
             <div class="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] bg-indigo-100 rounded-full blur-[120px] opacity-70"></div>
@@ -150,32 +158,35 @@
         </div>
 
         <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100/50 border border-indigo-200 text-indigo-700 text-xs font-extrabold uppercase tracking-widest mb-8">
+            <div data-t="hero_badge" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100/50 border border-indigo-200 text-indigo-700 text-xs font-extrabold uppercase tracking-widest mb-8">
                 ✨ Early Access Invite
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 leading-[1.05] tracking-tight mb-8">
+            <h1 id="hero-title" class="text-5xl md:text-7xl font-extrabold text-slate-900 leading-[1.05] tracking-tight mb-8">
                 Stop guessing. <br>
                 Start <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-500">Trending.</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-600 mb-4 max-w-3xl mx-auto leading-relaxed font-medium">
+            <p data-t="hero_desc" class="text-lg md:text-xl text-slate-600 mb-4 max-w-3xl mx-auto leading-relaxed font-medium">
                 Paste a YouTube link and Trendly reveals why it went viral
             </p>
-            <p class="text-sm md:text-base text-indigo-500/80 mb-12 font-bold uppercase tracking-widest">
+            <p data-t="hero_subdesc" class="text-sm md:text-base text-indigo-500/80 mb-12 font-bold uppercase tracking-widest">
                 hooks, keywords, audience pain, and monetization strategy
             </p>
 
+            <!-- URL Input Box -->
             <div class="max-w-2xl mx-auto mb-8 p-2 bg-white rounded-3xl custom-shadow flex flex-col md:flex-row gap-2 border border-slate-100">
                 <input type="text" 
                     id="url-input"
+                    data-t-placeholder="url_placeholder"
                     placeholder="Paste a YouTube link here..." 
                     class="flex-1 px-6 py-4 text-lg bg-transparent border-none focus:ring-0 outline-none font-medium"
                 >
                 <button id="analyze-btn" class="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-indigo-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-indigo-200">
-                    Analyze Vibe
+                    <span data-t="btn_analyze">Analyze Vibe</span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </button>
             </div>
 
+            <!-- Private Beta Section -->
             <div id="beta-message" class="hidden-section max-w-2xl mx-auto mb-16">
                 <div class="bg-white border border-indigo-100 rounded-[2.5rem] p-8 md:p-12 shadow-xl relative overflow-hidden text-left">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-full -mr-16 -mt-16 opacity-50"></div>
@@ -185,43 +196,45 @@
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
                             </span>
-                            <h3 class="text-indigo-600 font-extrabold uppercase tracking-widest text-sm">Private Beta</h3>
+                            <h3 data-t="beta_tag" class="text-indigo-600 font-extrabold uppercase tracking-widest text-sm">Private Beta</h3>
                         </div>
-                        <h2 class="text-3xl font-extrabold mb-4 text-slate-900 leading-tight">Trendly is currently in private beta.</h2>
-                        <p class="text-slate-600 font-medium mb-8 leading-relaxed">
+                        <h2 data-t="beta_title" class="text-3xl font-extrabold mb-4 text-slate-900 leading-tight">Trendly is currently in private beta.</h2>
+                        <p data-t="beta_desc" class="text-slate-600 font-medium mb-8 leading-relaxed">
                             We're manually reviewing creators to ensure the best results. Join the waitlist to get early access and see your breakdown soon.
                         </p>
                         
                         <form id="beta-form" class="flex flex-col sm:flex-row gap-3">
                             <input type="email" 
                                 id="beta-email"
+                                data-t-placeholder="email_placeholder"
                                 placeholder="Your best email" 
                                 required
                                 class="flex-1 px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 placeholder:text-slate-400 outline-none focus:border-indigo-300 transition-all font-bold"
                             >
                             <button type="submit" class="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-extrabold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100">
-                                Join Waitlist
+                                <span data-t="btn_waitlist">Join Waitlist</span>
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
             
-            <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">Trusted by 2,000+ Next-Gen Creators</p>
+            <p data-t="social_proof" class="text-xs text-slate-400 font-bold uppercase tracking-widest">Trusted by 2,000+ Next-Gen Creators</p>
         </div>
     </section>
 
+    <!-- How It Works Section -->
     <section id="how-it-works" class="py-24 bg-slate-50 relative overflow-hidden">
         <div class="absolute top-20 right-20 w-32 h-32 bg-yellow-100 rounded-full blur-3xl opacity-60 spark-rotate"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10 text-center md:text-left">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                 <div class="max-w-xl">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-bold mb-4">
+                    <div data-t="hiw_badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-bold mb-4">
                         💡 THE BLUEPRINT
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">Three steps to <span class="text-indigo-600">viral mastery.</span></h2>
+                    <h2 id="hiw-title" class="text-4xl md:text-5xl font-extrabold tracking-tight">Three steps to <span class="text-indigo-600">viral mastery.</span></h2>
                 </div>
-                <p class="text-slate-500 font-bold text-lg md:max-w-xs leading-relaxed">
+                <p data-t="hiw_subtitle" class="text-slate-500 font-bold text-lg md:max-w-xs leading-relaxed">
                     Turn any video into a blueprint in seconds.
                 </p>
             </div>
@@ -235,158 +248,359 @@
                     <div class="w-16 h-16 rounded-[1.5rem] bg-indigo-600 flex items-center justify-center float-animation shadow-xl shadow-indigo-200 mb-8">
                         <span class="text-3xl">🔗</span>
                     </div>
-                    <h3 class="text-2xl font-black mb-2 flex items-center gap-3">Paste</h3>
-                    <p class="text-slate-500 font-bold text-sm leading-relaxed">Drop a link. See its secrets.</p>
+                    <h3 data-t="step1_title" class="text-2xl font-black mb-2 flex items-center gap-3">Paste</h3>
+                    <p data-t="step1_desc" class="text-slate-500 font-bold text-sm leading-relaxed">Drop a link. See its secrets.</p>
                 </div>
 
                 <div class="bento-card group p-10 rounded-[3rem] bg-slate-900 border border-slate-800 shadow-2xl flex flex-col items-start text-left">
                     <div class="w-16 h-16 rounded-[1.5rem] bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center float-animation shadow-xl shadow-purple-500/20 mb-8" style="animation-delay: -2s;">
                         <span class="text-3xl">🧠</span>
                     </div>
-                    <h3 class="text-2xl font-black mb-2 text-white flex items-center gap-3">Decode</h3>
-                    <p class="text-slate-400 font-bold text-sm leading-relaxed">Discover the hook & viral formula. AI spots what made it explode.</p>
+                    <h3 data-t="step2_title" class="text-2xl font-black mb-2 text-white flex items-center gap-3">Decode</h3>
+                    <p data-t="step2_desc" class="text-slate-400 font-bold text-sm leading-relaxed">Discover the hook & viral formula. AI spots what made it explode.</p>
                 </div>
 
                 <div class="bento-card group p-10 rounded-[3rem] bg-white border border-slate-100 shadow-xl shadow-slate-200/50 flex flex-col items-start text-left">
                     <div class="w-16 h-16 rounded-[1.5rem] bg-emerald-500 flex items-center justify-center float-animation shadow-xl shadow-emerald-200 mb-8" style="animation-delay: -4s;">
                         <span class="text-3xl">🚀</span>
                     </div>
-                    <h3 class="text-2xl font-black mb-2 flex items-center gap-3">Ship</h3>
-                    <p class="text-slate-500 font-bold text-sm leading-relaxed">Turn insights into your next hit.</p>
+                    <h3 data-t="step3_title" class="text-2xl font-black mb-2 flex items-center gap-3">Ship</h3>
+                    <p data-t="step3_desc" class="text-slate-500 font-bold text-sm leading-relaxed">Turn insights into your next hit.</p>
                 </div>
             </div>
         </div>
     </section>
 
+       <!-- Features Section -->
     <section id="features" class="py-32 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-500 text-xs font-bold mb-4">🛠️ THE TOOLKIT</div>
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-20 tracking-tight">Tools to outsmart the <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-400">Algorithm.</span></h2>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-500 text-xs font-bold mb-4">
+                    🛠️ THE TOOLKIT
+                </div>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Tools to outsmart the <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-400">Algorithm.</span></h2>
+            </div>
 
-            <div class="grid md:grid-cols-2 gap-8 text-left">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Feature 1: Viral Hook Analyzer -->
                 <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover:border-indigo-200 transition-all group flex flex-col md:flex-row gap-8">
                     <div class="flex-1">
                         <h3 class="text-2xl font-black mb-4">Viral Hook Analyzer</h3>
-                        <p class="text-slate-600 font-medium leading-relaxed">See exactly how a video captures attention.</p>
+                        <p class="text-slate-600 font-medium leading-relaxed mb-6">
+                            See exactly how a video captures attention. Trendly analyzes the opening hook, pacing, and emotional curve so you know why viewers stay.
+                        </p>
+                        <div class="flex items-center gap-2 text-indigo-600 font-bold text-sm italic">
+                            <span>"Master the hook. Master the algorithm."</span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-48 h-32 bg-white rounded-2xl border border-slate-200 p-4 flex items-end gap-1.5 group-hover:bg-indigo-50 transition-colors">
+                        <div class="flex-1 bg-indigo-200 rounded-t bar-anim" style="animation-delay: 0.1s; height: 40%;"></div>
+                        <div class="flex-1 bg-indigo-400 rounded-t bar-anim" style="animation-delay: 0.3s; height: 60%;"></div>
+                        <div class="flex-1 bg-indigo-600 rounded-t bar-anim" style="animation-delay: 0.5s; height: 90%;"></div>
+                        <div class="flex-1 bg-indigo-300 rounded-t bar-anim" style="animation-delay: 0.2s; height: 50%;"></div>
+                        <div class="flex-1 bg-indigo-500 rounded-t bar-anim" style="animation-delay: 0.4s; height: 80%;"></div>
                     </div>
                 </div>
+
+                <!-- Feature 2: Audience Pain Miner -->
                 <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover:border-pink-200 transition-all group flex flex-col md:flex-row gap-8">
                     <div class="flex-1">
                         <h3 class="text-2xl font-black mb-4">Audience Pain Miner</h3>
-                        <p class="text-slate-600 font-medium leading-relaxed">AI scans thousands of comments and extracts real questions.</p>
+                        <p class="text-slate-600 font-medium leading-relaxed mb-6">
+                            AI scans thousands of comments and extracts the real questions viewers keep asking. Perfect for turning audience problems into your next viral video idea.
+                        </p>
+                        <div class="flex items-center gap-2 text-pink-600 font-bold text-sm italic">
+                            <span>"Turn audience pain into viral content."</span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-48 h-32 flex flex-col gap-2 justify-center">
+                        <div class="h-6 w-full bg-white rounded-lg border border-slate-200 flex items-center px-2 text-[8px] font-bold text-slate-400 overflow-hidden">"How can I grow faster...?"</div>
+                        <div class="h-6 w-3/4 bg-pink-100 rounded-lg border border-pink-200 flex items-center px-2 text-[8px] font-bold text-pink-600 comment-pop">
+                            <span class="mr-1">✨</span> AI: Target Small Creators
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Viral Keyword Extractor -->
+                <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-all group flex flex-col md:flex-row gap-8">
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-black mb-4">Viral Keyword Extractor</h3>
+                        <p class="text-slate-600 font-medium leading-relaxed mb-6">
+                            Extract the exact keywords used in viral videos and discover related keywords trending in the same niche.
+                        </p>
+                        <div class="flex items-center gap-2 text-emerald-600 font-bold text-sm italic">
+                            <span>"Find the keywords driving the views."</span>
+                        </div>
+                    </div>
+                    <!-- Keyword Cloud Animation -->
+                    <div class="w-full md:w-48 h-32 bg-slate-900 rounded-2xl p-4 flex flex-wrap gap-2 content-center justify-center relative overflow-hidden">
+                        <span class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-bold tag-anim" style="animation-delay: 0.1s;">#Hooks</span>
+                        <span class="px-2 py-1 rounded bg-emerald-500/30 text-emerald-400 text-[10px] font-bold tag-anim" style="animation-delay: 0.5s;">#ViralDNA</span>
+                        <span class="px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-bold tag-anim" style="animation-delay: 0.8s;">#AIBreakthrough</span>
+                        <span class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-bold tag-anim" style="animation-delay: 0.3s;">#Growth</span>
+                        <span class="px-2 py-1 rounded bg-emerald-500/40 text-emerald-400 text-[10px] font-bold tag-anim" style="animation-delay: 1.2s;">#Retention</span>
+                    </div>
+                </div>
+
+                <!-- Feature 4: Creator Monetization Map -->
+                <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover:border-orange-200 transition-all group flex flex-col md:flex-row gap-8">
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-black mb-4">Creator Monetization Map</h3>
+                        <p class="text-slate-600 font-medium leading-relaxed mb-6">
+                            See how top creators turn views into revenue. Trendly identifies their monetization strategy — products, courses, sponsorships, and funnels.
+                        </p>
+                        <div class="flex items-center gap-2 text-orange-600 font-bold text-sm italic">
+                            <span>"Don’t just copy the views. Learn the business behind them."</span>
+                        </div>
+                    </div>
+                    <!-- Blueprint Money Animation -->
+                    <div class="w-full md:w-48 h-32 bg-[#1a1c23] rounded-2xl p-4 relative overflow-hidden border border-slate-700">
+                        <!-- Grid lines -->
+                        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle, #4f46e5 1px, transparent 1px); background-size: 15px 15px;"></div>
+                        <!-- Blueprint Chart -->
+                        <div class="absolute bottom-4 left-4 right-4 h-12 flex items-end gap-1">
+                             <div class="w-2 bg-orange-500/40 rounded-t line-grow" style="height: 30%;"></div>
+                             <div class="w-2 bg-orange-500/60 rounded-t line-grow" style="height: 60%; animation-delay: 0.2s;"></div>
+                             <div class="w-2 bg-orange-500/80 rounded-t line-grow" style="height: 90%; animation-delay: 0.4s;"></div>
+                             <div class="w-2 bg-orange-500 rounded-t line-grow" style="height: 100%; animation-delay: 0.6s;"></div>
+                        </div>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+                            <span class="text-3xl coin-anim">💵</span>
+                            <div class="h-0.5 w-12 bg-orange-500/30 rounded-full mt-1"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Waitlist Section -->
     <section id="waitlist" class="py-32 px-6 bg-slate-50">
         <div class="max-w-5xl mx-auto rounded-[3rem] animated-gradient p-1 shadow-2xl shadow-indigo-200">
             <div class="bg-slate-950 rounded-[2.9rem] px-8 py-20 text-center">
-                <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">Ready to go viral?</h2>
-                <p class="text-slate-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-medium">
+                <h2 data-t="footer_cta_title" class="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">Ready to go viral?</h2>
+                <p data-t="footer_cta_desc" class="text-slate-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-medium">
                     Join 2,000+ creators waiting for the ultimate trend-prediction engine.
                 </p>
                 <form id="waitlist-form" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
                     <input type="email" 
                         id="footer-email"
+                        data-t-placeholder="email_placeholder_short"
                         placeholder="Enter your email" 
                         required
                         class="flex-1 px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder:text-slate-600 outline-none focus:border-white/30 transition-all font-bold"
                     >
                     <button type="submit" class="bg-white text-slate-900 px-8 py-4 rounded-2xl font-extrabold hover:bg-slate-100 transition-all active:scale-95">
-                        Get Early Access
+                        <span data-t="btn_footer_waitlist">Get Early Access</span>
                     </button>
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="py-16 border-t border-slate-100 bg-white">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <span class="text-base font-extrabold tracking-tight uppercase">Trendly</span>
-            <p class="text-slate-400 text-sm font-medium mt-4">Helping the next generation of creators win.</p>
+            <p data-t="footer_tagline" class="text-slate-400 text-sm font-medium mt-4">Helping the next generation of creators win.</p>
         </div>
     </footer>
 
     <script>
+        // --- TRANSLATION DATA (Simplified Chinese) ---
+        const translations = {
+            en: {
+                nav_how: "How it works",
+                nav_features: "Features",
+                nav_cta: "Join early access",
+                hero_badge: "✨ Early Access Invite",
+                hero_title_html: 'Stop guessing. <br> Start <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-500">Trending.</span>',
+                hero_desc: "Paste a YouTube link and Trendly reveals why it went viral",
+                hero_subdesc: "hooks, keywords, audience pain, and monetization strategy",
+                url_placeholder: "Paste a YouTube link here...",
+                btn_analyze: "Analyze Vibe",
+                beta_tag: "Private Beta",
+                beta_title: "Trendly is currently in private beta.",
+                beta_desc: "We're manually reviewing creators to ensure the best results. Join the waitlist to get early access and see your breakdown soon.",
+                email_placeholder: "Your best email",
+                btn_waitlist: "Join Waitlist",
+                social_proof: "Trusted by 2,000+ Next-Gen Creators",
+                hiw_badge: "💡 THE BLUEPRINT",
+                hiw_title_html: 'Three steps to <span class="text-indigo-600">viral mastery.</span>',
+                hiw_subtitle: "Turn any video into a blueprint in seconds.",
+                step1_title: "Paste",
+                step1_desc: "Drop a link. See its secrets.",
+                step2_title: "Decode",
+                step2_desc: "Discover the hook & viral formula. AI spots what made it explode.",
+                step3_title: "Ship",
+                step3_desc: "Turn insights into your next hit.",
+                feat_badge: "🛠️ THE TOOLKIT",
+                feat_title_html: 'Tools to outsmart the <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-400">Algorithm.</span>',
+                feat1_title: "Viral Hook Analyzer",
+                feat1_desc: "See exactly how a video captures attention.",
+                feat2_title: "Audience Pain Miner",
+                feat2_desc: "AI scans thousands of comments and extracts real questions.",
+                footer_cta_title: "Ready to go viral?",
+                footer_cta_desc: "Join 2,000+ creators waiting for the ultimate trend-prediction engine.",
+                email_placeholder_short: "Enter your email",
+                btn_footer_waitlist: "Get Early Access",
+                footer_tagline: "Helping the next generation of creators win.",
+                loading_text: "Checking Vibe...",
+                invalid_url: "Invalid YouTube Link",
+                success_text: "You're In! 🔥",
+                submitting_text: "Adding you..."
+            },
+            zh: {
+                nav_how: "运作方式",
+                nav_features: "功能特点",
+                nav_cta: "加入早期访问",
+                hero_badge: "✨ 早期访问邀请",
+                hero_title_html: '别再猜测。<br>开始引领 <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-500">趋势。</span>',
+                hero_desc: "粘贴 YouTube 链接，Trendly 为你揭秘爆红原因",
+                hero_subdesc: "钩子、关键词、观众痛点以及获利策略",
+                url_placeholder: "在此粘贴 YouTube 链接...",
+                btn_analyze: "分析氛围",
+                beta_tag: "封闭测试中",
+                beta_title: "Trendly 目前正处于封闭测试阶段。",
+                beta_desc: "我们正在手动审核创作者，以确保最佳产出。加入候补名单，抢先获得分析报告。",
+                email_placeholder: "你的主要电子邮件",
+                btn_waitlist: "加入候补",
+                social_proof: "深受 2,000+ 新世代创作者信赖",
+                hiw_badge: "💡 成功蓝图",
+                hiw_title_html: '迈向 <span class="text-indigo-600">病毒式传播</span> 的三个步骤。',
+                hiw_subtitle: "在几秒钟内将任何视频转化为成长蓝图。",
+                step1_title: "粘贴",
+                step1_desc: "输入链接，窥探其背后的秘密。",
+                step2_title: "解码",
+                step2_desc: "发现开场钩子与爆红公式，AI 精准识别爆点。",
+                step3_title: "发布",
+                step3_desc: "将洞察转化为你的下一个热门作品。",
+                feat_badge: "🛠️ 必备工具箱",
+                feat_title_html: '战胜 <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-400">算法</span> 的强大工具。',
+                feat1_title: "病毒式钩子分析",
+                feat1_desc: "精确掌握视频如何捕捉观众注意力。",
+                feat2_title: "观众痛点挖掘",
+                feat2_desc: "AI 扫描数千条评论，提取真实的用户疑问。",
+                footer_cta_title: "准备好引爆趋势了吗？",
+                footer_cta_desc: "加入 2,000+ 创作者，共同体验终极趋势预测引擎。",
+                email_placeholder_short: "输入你的电子邮件",
+                btn_footer_waitlist: "立即获得访问权限",
+                footer_tagline: "助力新世代创作者赢在起跑点。",
+                loading_text: "正在分析...",
+                invalid_url: "无效的链接",
+                success_text: "加入成功！🔥",
+                submitting_text: "正在加入..."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function updateLanguage() {
+            const t = translations[currentLang];
+            
+            // Text Content
+            document.querySelectorAll('[data-t]').forEach(el => {
+                const key = el.getAttribute('data-t');
+                if (t[key]) el.textContent = t[key];
+            });
+
+            // HTML Content (titles with spans)
+            if (t.hero_title_html) document.getElementById('hero-title').innerHTML = t.hero_title_html;
+            if (t.hiw_title_html) document.getElementById('hiw-title').innerHTML = t.hiw_title_html;
+            if (t.feat_title_html) document.getElementById('feat-title').innerHTML = t.feat_title_html;
+
+            // Placeholders
+            document.querySelectorAll('[data-t-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-t-placeholder');
+                if (t[key]) el.placeholder = t[key];
+            });
+
+            // Update toggle button text
+            document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'EN / 简体中文' : '简体中文 / EN';
+        }
+
+        document.getElementById('lang-toggle').addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            updateLanguage();
+        });
+
+        // --- FORM LOGIC ---
         const analyzeBtn = document.getElementById('analyze-btn');
         const urlInput = document.getElementById('url-input');
         const betaMessage = document.getElementById('beta-message');
 
-        // GOOGLE FORM CONFIGURATION
+        // UPDATED GOOGLE FORM URL
         const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfja1j-9q7xsUX3Op5m8_CQVK-wuUb767-TVcKD095gLYvbHw/formResponse";
         const ENTRY_EMAIL = "entry.1160091080"; 
         const ENTRY_URL = "entry.24753127";     
 
         analyzeBtn.addEventListener('click', function() {
             const url = urlInput.value.trim();
+            const t = translations[currentLang];
+
             if(url.includes('youtube.com') || url.includes('youtu.be')) {
                 this.disabled = true;
-                this.innerHTML = `<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Checking Vibe...`;
+                this.innerHTML = `<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ${t.loading_text}`;
                 
                 setTimeout(() => {
                     betaMessage.classList.add('show-section');
                     this.disabled = false;
-                    this.innerHTML = 'Analyze Vibe <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>';
+                    this.innerHTML = `<span>${t.btn_analyze}</span> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>`;
                     betaMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 1500);
             } else {
-                const originalText = this.innerHTML;
-                this.innerHTML = "Invalid YouTube Link";
+                const originalContent = this.innerHTML;
+                this.innerHTML = t.invalid_url;
                 this.classList.replace('bg-indigo-600', 'bg-red-500');
                 setTimeout(() => {
-                    this.innerHTML = originalText;
+                    this.innerHTML = originalContent;
                     this.classList.replace('bg-red-500', 'bg-indigo-600');
                 }, 2000);
             }
         });
 
-        // Combined Form Handling for Google Forms
         async function handleSubmission(e, formId, emailInputId) {
             e.preventDefault();
+            const t = translations[currentLang];
             const form = document.getElementById(formId);
             const btn = form.querySelector('button');
             const input = document.getElementById(emailInputId);
-            const youtubeUrl = urlInput.value.trim(); // Get URL from first input
+            const youtubeUrl = urlInput.value;
 
             const email = input.value.trim();
             if (!email) return;
 
             btn.disabled = true;
-            btn.innerHTML = 'Adding you...';
+            btn.innerHTML = t.submitting_text;
 
-            // Use URLSearchParams for application/x-www-form-urlencoded format
-            const params = new URLSearchParams();
-            params.append(ENTRY_EMAIL, email);
-            params.append(ENTRY_URL, youtubeUrl);
+            const formData = new FormData();
+            formData.append(ENTRY_EMAIL, email);
+            formData.append(ENTRY_URL, youtubeUrl);
 
             try {
-                // Fetch to Google Form with 'no-cors' mode
                 await fetch(GOOGLE_FORM_URL, {
                     method: 'POST',
                     mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-                    body: params.toString()
+                    body: formData
                 });
 
-                // UI Success state
-                btn.innerHTML = 'You\'re In! 🔥';
+                btn.innerHTML = t.success_text;
                 btn.classList.remove('bg-indigo-600', 'bg-white');
                 btn.classList.add('bg-green-500', 'text-white');
                 input.value = '';
                 gtag('event', 'form_submission_success', { 'form_id': formId });
             } catch (error) {
                 console.error("Submission error:", error);
-                btn.innerHTML = 'Error. Try again?';
+                btn.innerHTML = 'Error';
                 btn.disabled = false;
             }
         }
 
         document.getElementById('beta-form').addEventListener('submit', (e) => handleSubmission(e, 'beta-form', 'beta-email'));
         document.getElementById('waitlist-form').addEventListener('submit', (e) => handleSubmission(e, 'waitlist-form', 'footer-email'));
+        
+        // Initialize language
+        updateLanguage();
     </script>
 </body>
 </html>
