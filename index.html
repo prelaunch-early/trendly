@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trendly | Crack the Code to Going Viral</title>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZXLDXV9K9D"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -128,7 +127,6 @@
 </head>
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
 
-    <!-- Header -->
     <nav class="fixed top-0 w-full z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-2xl px-6 py-3 shadow-sm">
             <div class="flex items-center gap-2">
@@ -145,7 +143,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="relative pt-32 pb-20 md:pt-48 md:pb-24 px-6 overflow-hidden">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
             <div class="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] bg-indigo-100 rounded-full blur-[120px] opacity-70"></div>
@@ -167,7 +164,6 @@
                 hooks, keywords, audience pain, and monetization strategy
             </p>
 
-            <!-- URL Input Box -->
             <div class="max-w-2xl mx-auto mb-8 p-2 bg-white rounded-3xl custom-shadow flex flex-col md:flex-row gap-2 border border-slate-100">
                 <input type="text" 
                     id="url-input"
@@ -180,7 +176,6 @@
                 </button>
             </div>
 
-            <!-- Private Beta Section -->
             <div id="beta-message" class="hidden-section max-w-2xl mx-auto mb-16">
                 <div class="bg-white border border-indigo-100 rounded-[2.5rem] p-8 md:p-12 shadow-xl relative overflow-hidden text-left">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-full -mr-16 -mt-16 opacity-50"></div>
@@ -216,7 +211,6 @@
         </div>
     </section>
 
-    <!-- How It Works Section -->
     <section id="how-it-works" class="py-24 bg-slate-50 relative overflow-hidden">
         <div class="absolute top-20 right-20 w-32 h-32 bg-yellow-100 rounded-full blur-3xl opacity-60 spark-rotate"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10 text-center md:text-left">
@@ -264,7 +258,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section id="features" class="py-32 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-500 text-xs font-bold mb-4">🛠️ THE TOOLKIT</div>
@@ -287,7 +280,6 @@
         </div>
     </section>
 
-    <!-- Waitlist Section -->
     <section id="waitlist" class="py-32 px-6 bg-slate-50">
         <div class="max-w-5xl mx-auto rounded-[3rem] animated-gradient p-1 shadow-2xl shadow-indigo-200">
             <div class="bg-slate-950 rounded-[2.9rem] px-8 py-20 text-center">
@@ -310,7 +302,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-16 border-t border-slate-100 bg-white">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <span class="text-base font-extrabold tracking-tight uppercase">Trendly</span>
@@ -357,7 +348,7 @@
             const form = document.getElementById(formId);
             const btn = form.querySelector('button');
             const input = document.getElementById(emailInputId);
-            const youtubeUrl = urlInput.value;
+            const youtubeUrl = urlInput.value.trim(); // Get URL from first input
 
             const email = input.value.trim();
             if (!email) return;
@@ -365,20 +356,23 @@
             btn.disabled = true;
             btn.innerHTML = 'Adding you...';
 
-            // Google Form Submission via Fetch
-            const formData = new FormData();
-            formData.append(ENTRY_EMAIL, email);
-            formData.append(ENTRY_URL, youtubeUrl);
+            // Use URLSearchParams for application/x-www-form-urlencoded format
+            const params = new URLSearchParams();
+            params.append(ENTRY_EMAIL, email);
+            params.append(ENTRY_URL, youtubeUrl);
 
             try {
-                // 'no-cors' mode allows sending data even if we can't read the response
+                // Fetch to Google Form with 'no-cors' mode
                 await fetch(GOOGLE_FORM_URL, {
                     method: 'POST',
                     mode: 'no-cors',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: params.toString()
                 });
 
-                // Since we use 'no-cors', we assume success if no crash
+                // UI Success state
                 btn.innerHTML = 'You\'re In! 🔥';
                 btn.classList.remove('bg-indigo-600', 'bg-white');
                 btn.classList.add('bg-green-500', 'text-white');
